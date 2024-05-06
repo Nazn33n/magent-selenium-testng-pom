@@ -1,0 +1,1 @@
+# magent-selenium-testng-pom
