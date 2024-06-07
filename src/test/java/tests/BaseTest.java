@@ -59,7 +59,7 @@ public class BaseTest {
         init();
 
         if (browser.equals("chrome")){
-            System.setProperty("webdriver.chrome.driver",resourcesRoot+"drivers\\chromedriver123.exe");
+            System.setProperty("webdriver.chrome.driver",resourcesRoot+"drivers\\chromedriver.exe");
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");

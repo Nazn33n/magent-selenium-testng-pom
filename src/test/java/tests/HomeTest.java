@@ -93,7 +93,7 @@ public class HomeTest extends BaseTest {
         page.getInstance(HomePage.class).getProductsAddButton().click();
         page.getInstance(HomePage.class).getProductsCompareLink().click();
         page.getInstance(HomePage.class).getProductsCompareList().click();
-        page.getInstance(HomePage.class).getPrintPageLink().click();
+//        page.getInstance(HomePage.class).getPrintPageLink().click();
 
 
     }

@@ -11,11 +11,16 @@ public class OrderPlacePage extends BasePage {
     private By clickSubMenu = By.linkText("Tops");
     private By selectSizeFromTopSection = By.cssSelector(".item.product.product-item:nth-child(3) .swatch-option.text:first-child");
     private By selectColorFromTopSection = By.cssSelector(".item.product.product-item:nth-child(3) .swatch-option.color");
-    private By clickAddCartButton = By.cssSelector(".item.product.product-item:nth-child(3) .actions-primary");
+    private By clickAddCartButtonFromTops = By.cssSelector(".item.product.product-item:nth-child(3) .actions-primary");
+
+
     private By clickMenLink = By.linkText("Men");
     private By clickMenBottomLink = By.linkText("Bottoms");
     private By selectSizeFromBottomSection = By.cssSelector(".item.product.product-item:nth-child(12) .swatch-option.text:nth-child(1)");
     private By selectColorFromBottomSection = By.cssSelector(".item.product.product-item:nth-child(12) .swatch-option.color:first-child");
+    private By clickAddCartButtonFromBottoms = By.className("action tocart primary");
+
+
     private By cartView = By.cssSelector(".action.showcart");
     private By proceedToCheckout = By.id("top-cart-btn-checkout");
     private By clickGearItems = By.id("ui-id-6");
@@ -32,13 +37,15 @@ public class OrderPlacePage extends BasePage {
     //add product to cart from Top menu
     public WebElement getProductSize1() { return elementWithWait(selectSizeFromTopSection, "clickable"); }
     public WebElement getProductColor1() { return elementWithWait(selectColorFromTopSection, "clickable"); }
-    public WebElement getAddCartButton(){return elementWithWait(clickAddCartButton, "clickable");}
-    public WebElement getMenLink(){return elementWithWait(clickMenLink, "clickable");}
-    public WebElement GetMenBottomLink(){return elementWithWait(clickMenBottomLink, "clickable");}
+    public WebElement getAddCartButtonFromTops(){return elementWithWait(clickAddCartButtonFromTops, "clickable");}
+
 
     //add product to cart from Bottom menu
+    public WebElement getMenLink(){return elementWithWait(clickMenLink, "clickable");}
+    public WebElement getMenBottomLink(){return elementWithWait(clickMenBottomLink, "clickable");}
     public WebElement getProductSize2(){return elementWithWait(selectSizeFromBottomSection, "clickable");}
     public WebElement getProductColor2(){return elementWithWait(selectColorFromBottomSection, "clickable");}
+    public WebElement getAddCartButtonFromBottoms(){return elementWithWait(clickAddCartButtonFromBottoms, "clickable");}
 
     //add product to cart from Gear menu
     public WebElement getClickGearMenu(){return elementWithWait(clickGearItems, "clickable");}

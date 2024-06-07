@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.NewAccountPage;
 import pages.Page;
 import utils.Utility;
@@ -32,6 +33,7 @@ public class NewAccountTest extends BaseTest {
     @Test
     public void CreateNewAccountTest() throws IOException {
 
+        page.getInstance(NewAccountPage.class).getClickNewAccountCreateLink().click();
         page.getInstance(NewAccountPage.class).getFirstName().sendKeys(first_name);
         page.getInstance(NewAccountPage.class).getLastName().sendKeys(last_name);
         page.getInstance(NewAccountPage.class).getEmailAddress().sendKeys(utility.getEmail());

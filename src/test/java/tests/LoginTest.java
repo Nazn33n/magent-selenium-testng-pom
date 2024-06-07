@@ -7,7 +7,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.Page;
-import utils.Utility;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -34,34 +33,50 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void initiateLoginTest() throws IOException {
+    public void initiateLoginTest() throws InterruptedException {
         page.getInstance(LoginPage.class).getSignInLink().click();
         page.getInstance(LoginPage.class).getLoginEmail().sendKeys(login_email);
         page.getInstance(LoginPage.class).getLoginPassword().sendKeys(login_password);
         page.getInstance(LoginPage.class).getLoginSubmitButton().click();
+        Thread.sleep(3000);
 
-        //Handling Broken Links
-        // Find all the links on the page
+    }
+
+    @Test
+    public void brokenLinkTest(){
         List<WebElement> links = driver.findElements(By.tagName("a"));
 
-//         Iterate through each link and check if it's broken
+        int brokenLinks = 0;
+        int workingLinks = 0;
+
         for (WebElement link : links) {
             String url = link.getAttribute("href");
 
             if (url != null && !url.isEmpty()) {
-                HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-                connection.setRequestMethod("GET");
-                connection.connect();
+                try {
+                    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+                    connection.setRequestMethod("HEAD");
+                    connection.connect();
 
-                int statusCode = connection.getResponseCode();
-                if (statusCode >= 400) {
-                    System.out.println("Broken Link: " + url + " - Status Code: " + statusCode);
-                } else {
-                    System.out.println("Valid Link: " + url + " - Status Code: " + statusCode);
+                    int responseCode = connection.getResponseCode();
+
+                    if (responseCode >= 400) {
+                        System.out.println(url + " is a broken link.");
+                        brokenLinks++;
+                    } else {
+                        System.out.println(url + " is a working link.");
+                        workingLinks++;
+                    }
+                } catch (Exception e) {
+                    System.out.println(url + " is a broken link.");
+                    brokenLinks++;
                 }
+            } else {
+                System.out.println("URL is either not configured for anchor tag or it is empty.");
             }
         }
 
-
+        System.out.println("Number of broken links: " + brokenLinks);
+        System.out.println("Number of working links: " + workingLinks);
     }
 }
