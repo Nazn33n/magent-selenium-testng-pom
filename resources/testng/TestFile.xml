@@ -6,32 +6,30 @@
 
     <test name="XPATH Practice">
         <classes>
-           <class name="tests.LoginTest">
-                <methods>
-                    <include name="initiateLoginTest"/>
-                   <include name="brokenLinkTest"/>
-                </methods>
-            </class>
+
+<!--           <class name="tests.LoginTest">-->
+<!--                <methods>-->
+<!--                    <include name="initiateLoginTest"/>-->
+<!--                   <include name="brokenLinkTest"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+
 <!--            <class name="tests.HomeTest">-->
 <!--                <methods>-->
 <!--                    <include name="locatorTest"/>-->
 <!--                    <include name="subscribeTest"/>-->
-<!--&lt;!&ndash;                    <include name="alertBoxTest"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <include name="comparisonTest"/>&ndash;&gt;-->
+<!--                    <include name="alertBoxTest"/>-->
+<!--                    <include name="comparisonTest"/>-->
 <!--                </methods>-->
 <!--            </class>-->
-<!--            <class name="tests.OrderPlaceTest">-->
-<!--                <methods>-->
-<!--                <include name="addProductFromTop"/>-->
-<!--&lt;!&ndash;                <include name="addProductFromBottom"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                <include name="addProductFromGear"/>&ndash;&gt;-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--                        <class name="tests.NewAccountTest">-->
-<!--                        </class>-->
 
-<!--                        <class name="tests.AddressBookTest">-->
-<!--                        </class>-->
+            <class name="tests.OrderPlaceTest">
+                <methods>
+<!--                <include name="addProductFromTop"/>-->
+<!--                <include name="addProductFromBottom"/>-->
+                <include name="addProductFromGear"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

@@ -27,7 +27,7 @@ public class HomePage extends BasePage {
     private By pressAddToCartButton = By.cssSelector(".product-item:first-child .action.tocart.primary");
     private By presscartIcon = By.cssSelector(".action.showcart");
     private By pressDeleteIcon = By.cssSelector(".action.delete");
-    private By pressOkFromAlertBox = By.xpath("/html/body/div[4]/aside[2]/div[2]/footer/button[2]/span");
+    private By pressOkFromAlertBox = By.xpath("/html/body/div[4]/aside[2]/div[2]/footer/button[2]");
 
 
     //Add two product to cart for comparison feature
@@ -123,7 +123,4 @@ public class HomePage extends BasePage {
     public WebElement getProductsCompareList() {
         return elementWithWait(productCompareList, "clickable");
     }
-
-//    public WebElement getPrintPageLink() { return elementWithWait(printPage, "clickable"); }
-
 }
