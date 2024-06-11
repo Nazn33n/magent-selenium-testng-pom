@@ -6,13 +6,15 @@
 
     <test name="XPATH Practice">
         <classes>
+<!--            <class name="tests.LoginTest">-->
+<!--            </class>-->
 
-<!--           <class name="tests.LoginTest">-->
+           <class name="tests.NewAccountTest">
 <!--                <methods>-->
 <!--                    <include name="initiateLoginTest"/>-->
-<!--                   <include name="brokenLinkTest"/>-->
+<!--&lt;!&ndash;                   <include name="brokenLinkTest"/>&ndash;&gt;-->
 <!--                </methods>-->
-<!--            </class>-->
+            </class>
 
 <!--            <class name="tests.HomeTest">-->
 <!--                <methods>-->
@@ -25,10 +27,12 @@
 
             <class name="tests.OrderPlaceTest">
                 <methods>
-<!--                <include name="addProductFromTop"/>-->
-<!--                <include name="addProductFromBottom"/>-->
+<!--&lt;!&ndash;                <include name="addProductFromTop"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <include name="addProductFromBottom"/>&ndash;&gt;-->
                 <include name="addProductFromGear"/>
                 </methods>
+            </class>
+            <class name="tests.ShippingMethodTest">
             </class>
         </classes>
     </test>

@@ -11,7 +11,6 @@ public class NewAccountPage extends BasePage {
         super(driver);
     }
 
-
     private By clickNewAccountCreateLink = By.linkText("Create an Account");
     private By firstName = By.id("firstname");
     private By lastName = By.id("lastname");
@@ -20,9 +19,7 @@ public class NewAccountPage extends BasePage {
     private By passwordConfirmation = By.id("password-confirmation");
     private By submitButton = By.cssSelector("button[title='Create an Account'] span");
 
-    public WebElement getClickNewAccountCreateLink() {
-        return elementWithWait(clickNewAccountCreateLink, "clickable");
-    }
+    public WebElement getClickNewAccountCreateLink() {return elementWithWait(clickNewAccountCreateLink, "clickable");}
 
     public WebElement getFirstName() {
         return elementWithWait(firstName, "presence");
@@ -32,23 +29,11 @@ public class NewAccountPage extends BasePage {
         return elementWithWait(lastName, "presence");
     }
 
-    public WebElement getEmailAddress() {
-        return elementWithWait(emailAddress, "presence");
+    public WebElement getEmailAddress() {return elementWithWait(emailAddress, "presence");}
 
-    }
+    public WebElement getPassword() {return elementWithWait(inputPassword, "presence");}
 
-    public WebElement getPassword() {
-        return elementWithWait(inputPassword, "presence");
+    public WebElement getPasswordConfirmation() {return elementWithWait(passwordConfirmation, "presence");}
 
-    }
-
-    public WebElement getPasswordConfirmation() {
-        return elementWithWait(passwordConfirmation, "presence");
-
-    }
-
-    public WebElement getSubmitButton() {
-        return elementWithWait(submitButton, "clickable");
-
-    }
+    public WebElement getSubmitButton() {return elementWithWait(submitButton, "clickable");}
 }

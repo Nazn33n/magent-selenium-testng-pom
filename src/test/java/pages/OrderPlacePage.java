@@ -11,25 +11,25 @@ public class OrderPlacePage extends BasePage {
         super(driver);
     }
 
-    private By clickMenItems = By.xpath("//*[@id=\"ui-id-5\"]");
+    private By clickMenItems = By.xpath("//*[@id=\"ui-id-5\"]/span[2]");
     private By clickSubMenu = By.linkText("Tops");
     private By selectSizeFromTopSection = By.cssSelector(".item.product.product-item:nth-child(3) .swatch-option.text:first-child");
     private By selectColorFromTopSection = By.cssSelector(".item.product.product-item:nth-child(3) .swatch-option.color");
-    private By clickAddCartButtonFromTops = By.cssSelector(".item.product.product-item:nth-child(3) .actions-primary");
+    private By clickAddCartButtonFromTops = By.xpath("//*[@id=\"maincontent\"]//li[3]//button");
 
 
     private By clickMenLink = By.linkText("Men");
-    private By clickMensBottomLink = By.xpath("//a[contains(text(),'Bottoms')]");
+    private By clickMensBottomLink = By.linkText("Bottoms");
     private By selectSizeFromBottomSection = By.cssSelector(".item.product.product-item:nth-child(12) .swatch-option.text:nth-child(1)");
     private By selectColorFromBottomSection = By.cssSelector(".item.product.product-item:nth-child(12) .swatch-option.color:first-child");
-    private By clickAddCartButtonFromBottoms = By.cssSelector(".item.product.product-item:nth-child(12) .actions-primary");
+    private By clickAddCartButtonFromBottoms = By.xpath("//*[@id=\"maincontent\"]//li[12]//button");
 
 
 
     private By clickGearItems = By.id("ui-id-6");
     private By clickWatchesLink = By.linkText("Watches");
     private By clickProductDetail = By.cssSelector(".item.product.product-item:nth-child(3)");
-    private By clickAddCartButton = By.cssSelector(".actions .action.primary.tocart");
+    private By clickAddCartButton = By.xpath("//*[@id=\"product-addtocart-button\"]");
     private By cartView = By.xpath("//a[@class='action showcart']");
     private By proceedToCheckout = By.id("top-cart-btn-checkout");
 

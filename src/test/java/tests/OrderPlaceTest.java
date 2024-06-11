@@ -26,13 +26,13 @@ public class OrderPlaceTest extends BaseTest {
     }
 
     @Test
-    public void addProductFromTop() {
+    public void addProductFromTop() throws InterruptedException {
 
         page.getInstance(OrderPlacePage.class).getClickMenMenu().click();
         page.getInstance(OrderPlacePage.class).getClickTopMenu().click();
         page.getInstance(OrderPlacePage.class).getProductSize1().click();
-        page.getInstance(OrderPlacePage.class).getProductSize1().click();
         page.getInstance(OrderPlacePage.class).getProductColor1().click();
+        Thread.sleep(5000);
         page.getInstance(OrderPlacePage.class).getAddCartButtonFromTops().click();
     }
     @Test
@@ -55,7 +55,7 @@ public class OrderPlaceTest extends BaseTest {
         page.getInstance(OrderPlacePage.class).getProductDetails().click();
 
         page.getInstance(OrderPlacePage.class) .getAddCartButtonFromWatchesList().click();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         page.getInstance(OrderPlacePage.class).getCartIcon().click();
         page.getInstance(OrderPlacePage.class).getProceedCheckoutButton().click();
     }
