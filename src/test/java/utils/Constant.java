@@ -14,8 +14,8 @@ public class Constant {
     public final static String new_password_confirmation = "Ksl@1234@";
 
 
-    public final static String login_email = "nazneen11@yopmail.com";
-    public final static String login_password = "Naz@1234@";
+    public final static String login_email = "parveen1@yopmail.com";
+    public final static String login_password = "Naz@1234";
 
 
     public final static String phone_number = "016298562665";
@@ -31,6 +31,7 @@ public class Constant {
 
     public final static String subscribe_position = "SQA Engineer";
     public final static String alert_message = "Are you sure you would like to remove this item from the shopping cart?";
+    public final static String success_message = "Thank you for your purchase!";
 
 
 

@@ -1,9 +1,11 @@
 package tests;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.time.Duration;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -59,7 +61,7 @@ public class BaseTest {
         init();
 
         if (browser.equals("chrome")){
-            System.setProperty("webdriver.chrome.driver",resourcesRoot+"drivers\\chromedriver123.exe");
+            System.setProperty("webdriver.chrome.driver",resourcesRoot+"drivers\\chromedriver.exe");
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
@@ -102,22 +104,12 @@ public class BaseTest {
 //        }
 //
 //
-//    public static void takeScreenshot(WebDriver webDriver, String filePath) throws Exception{
-//        //Convert web driver object to TakeScreenshot
-//        TakesScreenshot screenshot = ((TakesScreenshot) webDriver);
-//
-//        //Call getScreenshotAs method to create image file
-//        File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
-//
-//        //Move image file to new destination
-//        File destinationFile = new File(filePath);
-//
-//        //Copy file at destination
-//        FileUtils.copyFile(srcFile,destinationFile);
-
-//    }
-
-    @AfterSuite
+    public void takeScreenshot(String filePath) throws Exception{
+        TakesScreenshot screenshot = ((TakesScreenshot) driver);
+        File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
+        File destinationFile = new File(filePath+".png");
+        FileUtils.copyFile(srcFile,destinationFile);
+  }
     public void tearDown(){
         driver.quit();
 

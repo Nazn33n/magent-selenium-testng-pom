@@ -1,12 +1,16 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.AddressBookPage;
 import pages.Page;
 import pages.ShippingMethodPage;
+
+import java.util.List;
+import java.util.Random;
 
 import static utils.Constant.*;
 
@@ -27,20 +31,31 @@ public class ShippingMethodTest extends BaseTest {
     }
 
     @Test
-    public void fillUpShippingInformation() {
+    public void fillUpShippingInformation() throws InterruptedException {
         page.getInstance(ShippingMethodPage.class).getCompany().sendKeys(company_name);
         page.getInstance(ShippingMethodPage.class).getShipAddressOne().sendKeys(address_one);
         page.getInstance(ShippingMethodPage.class).getShipAddressTwo().sendKeys(address_two);
         page.getInstance(ShippingMethodPage.class).getShipAddressThree().sendKeys(address_three);
         page.getInstance(ShippingMethodPage.class).getShipCityName().sendKeys(city_name);
-        Select selectRegion = new Select(page.getInstance(ShippingMethodPage.class).getShipRegionId());
-        selectRegion.selectByValue("4");
+
+        WebElement dropDown = page.getInstance(ShippingMethodPage.class).getShipRegionId();
+        Select selectRegion = new Select(dropDown);
+        selectRegion.selectByIndex(4);
+        /*List<WebElement> list=selectRegion.getOptions();
+        int size=list.size();
+        Random r=new Random();
+        int index=r.nextInt(size);
+        list.get(index).click();*/
         page.getInstance(ShippingMethodPage.class).getShipPostCode().sendKeys(zip_code);
         page.getInstance(ShippingMethodPage.class).getShipTelephone().sendKeys(phone_number);
         page.getInstance(ShippingMethodPage.class).getShipRadioButton().click();
-
-
-
+        page.getInstance(ShippingMethodPage.class).getShippingNextButton().click();
+        Thread.sleep(3000);
+        page.getInstance(ShippingMethodPage.class).getShippingCheckBox().click();
+        page.getInstance(ShippingMethodPage.class).getShippingPlaceOrderButton().click();
+        String actualText = page.getInstance(ShippingMethodPage.class).getShippingSuccessMsg().getText();
+        Assert.assertEquals(actualText, success_message);
+        System.out.println(success_message);
 
     }
 

@@ -6,8 +6,10 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HomePage;
 import pages.Page;
+
 import java.util.Iterator;
 import java.util.Set;
+
 import static utils.Constant.*;
 
 
@@ -15,6 +17,7 @@ public class HomeTest extends BaseTest {
     WebDriver driver;
     Page page;
     JavascriptExecutor js;
+//    public static String s1;
 
     public HomeTest(String url) {
         super(url);
@@ -42,8 +45,10 @@ public class HomeTest extends BaseTest {
     }
 
     @Test
-    public void subscribeTest() {
+    public void subscribeTest() throws InterruptedException {
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, document.body.scrollHeight)", "");
         page.getInstance(HomePage.class).getClickSubscribe().click();
 
         //Handel Windows
@@ -73,12 +78,14 @@ public class HomeTest extends BaseTest {
         page.getInstance(HomePage.class).getSizeFromHome().click();
         page.getInstance(HomePage.class).getColorFromHome().click();
         page.getInstance(HomePage.class).getAddToCartButton().click();
+        Thread.sleep(3000);
         page.getInstance(HomePage.class).getCartIcon().click();
         page.getInstance(HomePage.class).getDeleteIcon().click();
-        Thread.sleep(5000);
         page.getInstance(HomePage.class).getOkFromAlertBox().click();
+//        page.getInstance(HomePage.class).getOkFromAlertBox().click();
 
     }
+
     @Test
     public void comparisonTest() throws InterruptedException {
 
@@ -92,8 +99,10 @@ public class HomeTest extends BaseTest {
         Thread.sleep(6000);
         page.getInstance(HomePage.class).getProductsAddButton().click();
         page.getInstance(HomePage.class).getProductsCompareLink().click();
+//        WebElement w1 = page.getElementBy(df.class).getmethod();
+//        s1.w1.gettext();
         page.getInstance(HomePage.class).getProductsCompareList().click();
-        page.getInstance(HomePage.class).getPrintPageLink().click();
+//        page.getInstance(HomePage.class).getPrintPageLink().click();
 
 
     }

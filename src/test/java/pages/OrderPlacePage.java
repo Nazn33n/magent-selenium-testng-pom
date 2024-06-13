@@ -7,23 +7,31 @@ import org.openqa.selenium.WebElement;
 import java.io.IOException;
 
 public class OrderPlacePage extends BasePage {
-    private By clickMenItems = By.cssSelector("a[id='ui-id-5'] span:nth-child(2)");
+    public OrderPlacePage(WebDriver driver) throws IOException{
+        super(driver);
+    }
+
+    private By clickMenItems = By.xpath("//*[@id=\"ui-id-5\"]/span[2]");
     private By clickSubMenu = By.linkText("Tops");
     private By selectSizeFromTopSection = By.cssSelector(".item.product.product-item:nth-child(3) .swatch-option.text:first-child");
     private By selectColorFromTopSection = By.cssSelector(".item.product.product-item:nth-child(3) .swatch-option.color");
-    private By clickAddCartButton = By.cssSelector(".item.product.product-item:nth-child(3) .actions-primary");
+    private By clickAddCartButtonFromTops = By.xpath("//*[@id=\"maincontent\"]//li[3]//button");
+
+
     private By clickMenLink = By.linkText("Men");
-    private By clickMenBottomLink = By.linkText("Bottoms");
+    private By clickMensBottomLink = By.linkText("Bottoms");
     private By selectSizeFromBottomSection = By.cssSelector(".item.product.product-item:nth-child(12) .swatch-option.text:nth-child(1)");
     private By selectColorFromBottomSection = By.cssSelector(".item.product.product-item:nth-child(12) .swatch-option.color:first-child");
-    private By cartView = By.cssSelector(".action.showcart");
-    private By proceedToCheckout = By.id("top-cart-btn-checkout");
+    private By clickAddCartButtonFromBottoms = By.xpath("//*[@id=\"maincontent\"]//li[12]//button");
+
+
+
     private By clickGearItems = By.id("ui-id-6");
     private By clickWatchesLink = By.linkText("Watches");
-    private By clickAddCartButtonFromWatches = By.cssSelector(".item.product.product-item:nth-child(3) .actions-primary");
-
-
-    public OrderPlacePage(WebDriver driver) throws IOException { super(driver); }
+    private By clickProductDetail = By.cssSelector(".item.product.product-item:nth-child(3)");
+    private By clickAddCartButton = By.xpath("//*[@id=\"product-addtocart-button\"]");
+    private By cartView = By.xpath("//a[@class='action showcart']");
+    private By proceedToCheckout = By.id("top-cart-btn-checkout");
 
     //select men from the menu bar
     public WebElement getClickMenMenu() {return elementWithWait(clickMenItems, "clickable"); }
@@ -32,24 +40,27 @@ public class OrderPlacePage extends BasePage {
     //add product to cart from Top menu
     public WebElement getProductSize1() { return elementWithWait(selectSizeFromTopSection, "clickable"); }
     public WebElement getProductColor1() { return elementWithWait(selectColorFromTopSection, "clickable"); }
-    public WebElement getAddCartButton(){return elementWithWait(clickAddCartButton, "clickable");}
-    public WebElement getMenLink(){return elementWithWait(clickMenLink, "clickable");}
-    public WebElement GetMenBottomLink(){return elementWithWait(clickMenBottomLink, "clickable");}
+    public WebElement getAddCartButtonFromTops(){return elementWithWait(clickAddCartButtonFromTops, "clickable");}
+
 
     //add product to cart from Bottom menu
+    public WebElement getMenLink(){return elementWithWait(clickMenLink, "clickable");}
+    public WebElement getMenBottomLink(){return elementWithWait(clickMensBottomLink, "clickable");}
     public WebElement getProductSize2(){return elementWithWait(selectSizeFromBottomSection, "clickable");}
     public WebElement getProductColor2(){return elementWithWait(selectColorFromBottomSection, "clickable");}
+    public WebElement getAddCartButtonFromBottoms(){return elementWithWait(clickAddCartButtonFromBottoms, "clickable");}
 
     //add product to cart from Gear menu
     public WebElement getClickGearMenu(){return elementWithWait(clickGearItems, "clickable");}
 
 
     //cart view
+
+    public WebElement getWatchesList(){return elementWithWait(clickWatchesLink, "clickable");}
+    public WebElement getProductDetails(){return elementWithWait(clickProductDetail, "clickable");}
+    public WebElement getAddCartButtonFromWatchesList(){return elementWithWait(clickAddCartButton, "clickable");}
     public WebElement getCartIcon(){return elementWithWait(cartView, "clickable");}
     public WebElement getProceedCheckoutButton(){return elementWithWait(proceedToCheckout, "clickable");}
-    public WebElement getWatchesList(){return elementWithWait(clickWatchesLink, "clickable");}
-    public WebElement getAddCartButtonFromWatchesList(){return elementWithWait(clickAddCartButtonFromWatches, "clickable");}
-
 
 
 
