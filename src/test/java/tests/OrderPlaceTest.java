@@ -49,7 +49,7 @@ public class OrderPlaceTest extends BaseTest {
         Thread.sleep(3000);
     }
     @Test
-    public void addProductFromGear() throws InterruptedException {
+    public void addProductFromGear() throws Exception {
         page.getInstance(OrderPlacePage.class).getClickGearMenu().click();
         page.getInstance(OrderPlacePage.class).getWatchesList().click();
         page.getInstance(OrderPlacePage.class).getProductDetails().click();
@@ -58,5 +58,6 @@ public class OrderPlaceTest extends BaseTest {
         Thread.sleep(4000);
         page.getInstance(OrderPlacePage.class).getCartIcon().click();
         page.getInstance(OrderPlacePage.class).getProceedCheckoutButton().click();
+        takeScreenshot("Hello");
     }
 }
