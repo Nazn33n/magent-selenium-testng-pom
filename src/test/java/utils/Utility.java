@@ -8,7 +8,7 @@ public class Utility {
     static Logger logger = Logger.getLogger(Utility.class.getName());
 
     public String getEmail() throws IOException {
-        String email_template = "nilam#@yopmail.com";
+        String email_template = "Nazara#@yopmail.com";
 
         String filename = "email_serial.txt";
 

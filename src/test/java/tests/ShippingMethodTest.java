@@ -31,7 +31,7 @@ public class ShippingMethodTest extends BaseTest {
     }
 
     @Test
-    public void fillUpShippingInformation() throws InterruptedException {
+    public void fillUpShippingInformation() throws Exception {
         page.getInstance(ShippingMethodPage.class).getCompany().sendKeys(company_name);
         page.getInstance(ShippingMethodPage.class).getShipAddressOne().sendKeys(address_one);
         page.getInstance(ShippingMethodPage.class).getShipAddressTwo().sendKeys(address_two);
@@ -52,10 +52,12 @@ public class ShippingMethodTest extends BaseTest {
         page.getInstance(ShippingMethodPage.class).getShippingNextButton().click();
         Thread.sleep(3000);
         page.getInstance(ShippingMethodPage.class).getShippingCheckBox().click();
+//        page.getInstance(ShippingMethodPage.class).getShippingPlaceOrderButton().click();
         page.getInstance(ShippingMethodPage.class).getShippingPlaceOrderButton().click();
         String actualText = page.getInstance(ShippingMethodPage.class).getShippingSuccessMsg().getText();
         Assert.assertEquals(actualText, success_message);
         System.out.println(success_message);
+        takeScreenshot("ss2");
 
     }
 
