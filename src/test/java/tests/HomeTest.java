@@ -80,6 +80,7 @@ public class HomeTest extends BaseTest {
         page.getInstance(HomePage.class).getAddToCartButton().click();
         Thread.sleep(3000);
         page.getInstance(HomePage.class).getCartIcon().click();
+//        page.getInstance(HomePage.class).getDeleteIcon().click();
         page.getInstance(HomePage.class).getDeleteIcon().click();
         page.getInstance(HomePage.class).getOkFromAlertBox().click();
 //        page.getInstance(HomePage.class).getOkFromAlertBox().click();
@@ -92,6 +93,7 @@ public class HomeTest extends BaseTest {
         JavascriptExecutor js2 = (JavascriptExecutor) driver;
         js2.executeScript("window.scrollBy(700,0)", "");
         page.getInstance(HomePage.class).getProductDetail().click();
+//        page.getInstance(HomePage.class).getProductsSize().click();
         page.getInstance(HomePage.class).getProductsSize().click();
         page.getInstance(HomePage.class).getProductsColor().click();
         page.getInstance(HomePage.class).getProductsQty().clear();
@@ -99,10 +101,8 @@ public class HomeTest extends BaseTest {
         Thread.sleep(6000);
         page.getInstance(HomePage.class).getProductsAddButton().click();
         page.getInstance(HomePage.class).getProductsCompareLink().click();
-//        WebElement w1 = page.getElementBy(df.class).getmethod();
-//        s1.w1.gettext();
         page.getInstance(HomePage.class).getProductsCompareList().click();
-//        page.getInstance(HomePage.class).getPrintPageLink().click();
+
 
 
     }

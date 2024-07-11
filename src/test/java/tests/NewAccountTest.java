@@ -40,6 +40,7 @@ public class NewAccountTest extends BaseTest {
         page.getInstance(NewAccountPage.class).getPassword().sendKeys(input_password);
         page.getInstance(NewAccountPage.class).getPasswordConfirmation().sendKeys(password_confirmation);
         page.getInstance(NewAccountPage.class).getSubmitButton().click();
+        page.getInstance(NewAccountPage.class).getHomePage().click();
 
 
     }

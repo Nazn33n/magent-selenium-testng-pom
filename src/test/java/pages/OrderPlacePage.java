@@ -28,8 +28,8 @@ public class OrderPlacePage extends BasePage {
 
     private By clickGearItems = By.id("ui-id-6");
     private By clickWatchesLink = By.linkText("Watches");
-    private By clickProductDetail = By.cssSelector(".item.product.product-item:nth-child(3)");
-    private By clickAddCartButton = By.xpath("//*[@id=\"product-addtocart-button\"]");
+    private By clickProductDetail = By.xpath("//div[2]//div[3]/div[1]/div[3]//li[3]");
+    private By clickAddCartButton = By.id("product-addtocart-button");
     private By cartView = By.xpath("//a[@class='action showcart']");
     private By proceedToCheckout = By.id("top-cart-btn-checkout");
 

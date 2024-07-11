@@ -18,6 +18,7 @@ public class NewAccountPage extends BasePage {
     private By inputPassword = By.id("password");
     private By passwordConfirmation = By.id("password-confirmation");
     private By submitButton = By.cssSelector("button[title='Create an Account'] span");
+    private By clickLogo = By.xpath("//header//a/img");
 
     public WebElement getClickNewAccountCreateLink() {return elementWithWait(clickNewAccountCreateLink, "clickable");}
 
@@ -36,4 +37,5 @@ public class NewAccountPage extends BasePage {
     public WebElement getPasswordConfirmation() {return elementWithWait(passwordConfirmation, "presence");}
 
     public WebElement getSubmitButton() {return elementWithWait(submitButton, "clickable");}
+    public WebElement getHomePage() {return elementWithWait(clickLogo, "clickable");}
 }

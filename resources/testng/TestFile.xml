@@ -6,33 +6,36 @@
 
     <test name="XPATH Practice">
         <classes>
-<!--            <class name="tests.LoginTest">-->
-<!--            </class>-->
-
-           <class name="tests.NewAccountTest">
-<!--                <methods>-->
-<!--                    <include name="initiateLoginTest"/>-->
-<!--&lt;!&ndash;                   <include name="brokenLinkTest"/>&ndash;&gt;-->
-<!--                </methods>-->
+            <class name="tests.NewAccountTest">
             </class>
-
-<!--            <class name="tests.HomeTest">-->
-<!--                <methods>-->
-<!--                    <include name="locatorTest"/>-->
-<!--                    <include name="subscribeTest"/>-->
-<!--                    <include name="alertBoxTest"/>-->
-<!--                    <include name="comparisonTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-
+            <class name="tests.LoginTest">
+                <methods>
+                    <include name="initiateLoginTest"/>
+                    <include name="brokenLinkTest"/>
+                </methods>
+            </class>
+            <class name="tests.HomeTest">
+                <methods>
+                    <include name="locatorTest"/>
+                    <include name="subscribeTest"/>
+                    <include name="alertBoxTest"/>
+                    <include name="comparisonTest"/>
+                </methods>
+            </class>
             <class name="tests.OrderPlaceTest">
                 <methods>
-<!--&lt;!&ndash;                <include name="addProductFromTop"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                <include name="addProductFromBottom"/>&ndash;&gt;-->
-                <include name="addProductFromGear"/>
+                    <include name="addProductFromTop"/>
+                    <include name="addProductFromBottom"/>
+                    <include name="addProductFromGear"/>
                 </methods>
             </class>
             <class name="tests.ShippingMethodTest">
+            </class>
+            <class name="tests.MyAccountTest">
+                <methods>
+                    <include name="ProfileTest"/>
+                    <include name="OrderValidationTest"/>
+                </methods>
             </class>
         </classes>
     </test>

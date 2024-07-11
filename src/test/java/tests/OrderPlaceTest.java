@@ -57,7 +57,8 @@ public class OrderPlaceTest extends BaseTest {
         page.getInstance(OrderPlacePage.class) .getAddCartButtonFromWatchesList().click();
         Thread.sleep(4000);
         page.getInstance(OrderPlacePage.class).getCartIcon().click();
+        takeScreenshot("ss1");
+//        page.getInstance(OrderPlacePage.class).getProceedCheckoutButton().click();
         page.getInstance(OrderPlacePage.class).getProceedCheckoutButton().click();
-        takeScreenshot("Hello");
     }
 }
