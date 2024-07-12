@@ -19,7 +19,9 @@ public class ShippingMethodPage extends BasePage {
     private By shippingNextButton = By.xpath("//*[@id=\"shipping-method-buttons-container\"]//button");
     private By shippingCheckBox = By.xpath("//*[@id=\"billing-address-same-as-shipping-checkmo\"]");
     private By shippingPlaceOrderButton = By.cssSelector(".action.primary.checkout");
-    private By shippingSuccessMsg = By.xpath("/html/body/div[2]/main/div[1]/h1/span");
+    private By shippingSuccessMsg = By.xpath("/html/body/div[2]/main/div[1]/h1");
+    private By totalPrice = By.xpath("//*[@id=\"opc-sidebar\"]//table/tbody/tr[3]/td/strong");
+    private By orderId = By.className("order-number");
 
 
     public ShippingMethodPage(WebDriver driver) throws IOException {
@@ -39,4 +41,6 @@ public class ShippingMethodPage extends BasePage {
     public WebElement getShippingCheckBox(){return elementWithWait(shippingCheckBox, "presence");}
     public WebElement getShippingPlaceOrderButton(){return elementWithWait(shippingPlaceOrderButton, "presence");}
     public WebElement getShippingSuccessMsg(){return elementWithWait(shippingSuccessMsg, "presence");}
+    public WebElement getProductsTotalPrice(){return elementWithWait(totalPrice, "presence");}
+    public WebElement getOrderCompletionId(){return elementWithWait(orderId, "presence");}
 }

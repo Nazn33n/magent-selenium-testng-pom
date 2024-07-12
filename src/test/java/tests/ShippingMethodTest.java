@@ -6,9 +6,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.OrderPlacePage;
 import pages.Page;
 import pages.ShippingMethodPage;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -29,7 +31,8 @@ public class ShippingMethodTest extends BaseTest {
         driver = BaseTest.driver;
         page = BaseTest.page;
     }
-
+    List<String> productTotalPrice = new ArrayList<>();
+    List<String> orderIds = new ArrayList<>();
     @Test
     public void fillUpShippingInformation() throws Exception {
         page.getInstance(ShippingMethodPage.class).getCompany().sendKeys(company_name);
@@ -50,14 +53,27 @@ public class ShippingMethodTest extends BaseTest {
         page.getInstance(ShippingMethodPage.class).getShipTelephone().sendKeys(phone_number);
         page.getInstance(ShippingMethodPage.class).getShipRadioButton().click();
         page.getInstance(ShippingMethodPage.class).getShippingNextButton().click();
+
         Thread.sleep(3000);
+
+        WebElement totalPrice = page.getInstance(ShippingMethodPage.class).getProductsTotalPrice();
+        String saveTotalPrice = totalPrice.getText();
+        productTotalPrice.add(saveTotalPrice);
+        System.out.println(productTotalPrice);
+
+
+
         page.getInstance(ShippingMethodPage.class).getShippingCheckBox().click();
-//        page.getInstance(ShippingMethodPage.class).getShippingPlaceOrderButton().click();
         page.getInstance(ShippingMethodPage.class).getShippingPlaceOrderButton().click();
+
         String actualText = page.getInstance(ShippingMethodPage.class).getShippingSuccessMsg().getText();
         Assert.assertEquals(actualText, success_message);
         System.out.println(success_message);
         takeScreenshot("ss2");
+        String orderCompletionID = page.getInstance(ShippingMethodPage.class).getOrderCompletionId().getText();
+        orderIds.add(orderCompletionID);
+        System.out.println(orderCompletionID);
+
 
     }
 
